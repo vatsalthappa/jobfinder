@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resume Maker — TalentBridge</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="resume.css">
+</head>
+<body>
+  <div class="topbar"><span>Resume Builder</span><div class="topbar-links"><a href="login.html">Employer Login</a></div></div>
+  <nav>
+    <div class="logo"><div class="logo-icon"></div><span class="logo-text">Talent<span>Bridge</span></span></div>
+    <div class="nav-menu"><a href="index.html">Jobs</a><a href="salary.html">Salary Guide</a><a href="resume.html" class="active">Resume Builder</a></div>
+    <div class="nav-actions"><a class="btn-ghost" href="login.html">Sign In</a></div>
+  </nav>
+
+  <section class="section">
+    <div class="wrapper" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+      <div>
+        <h2 style="margin-bottom:0.6rem">Build Your Resume</h2>
+        <div style="display:flex;flex-direction:column;gap:0.6rem">
+          <input id="rName" placeholder="Full name" />
+          <input id="rTitle" placeholder="Professional title" />
+          <textarea id="rSummary" placeholder="Short summary"></textarea>
+          <input id="rSkill" placeholder="Add skill and press Enter" />
+          <button id="addSkill" class="btn-ghost">Add Skill</button>
+          <div style="display:flex;gap:0.5rem;align-items:center"><button id="printResume" class="btn">Print / Download</button><button id="clearResume" class="btn-ghost">Clear</button></div>
+        </div>
+      </div>
+      <div>
+        <h2 style="margin-bottom:0.6rem">Preview</h2>
+        <div id="resumePreview" style="background:var(--white);padding:1rem;border:1px solid var(--gray-200);border-radius:10px;min-height:300px"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer><span>© 2026 TalentBridge Pvt. Ltd.</span></footer>
+  <script src="resume.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+/* Simple styles for salary guide content */
+.salary-controls select, .salary-controls input { font-family: inherit; }
+#salaryTable tbody tr { transition: background 0.12s; }
+#salaryTable tbody tr:hover { background: rgba(26,86,219,0.03); }
+#salarySummary { padding: 0.9rem 1rem; background: var(--white); border:1px solid var(--gray-200); border-radius:var(--radius); margin-bottom:1rem; }
+
+.salary-bar { height: 12px; border-radius: 8px; background: linear-gradient(90deg,var(--blue),var(--gold)); }
+.salary-row-range { width: 180px; }

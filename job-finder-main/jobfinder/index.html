@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TalentBridge — Careers & Internships</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="topbar">
+  <span>Empowering careers across India &amp; beyond</span>
+  <div class="topbar-links">
+    <a href="login.html">Employer Login</a>
+    <a href="resume.html">Career Resources</a>
+    <a href="#">Help Center</a>
+  </div>
+</div>
+
+<nav>
+  <div class="logo">
+    <div class="logo-icon">
+      <svg width="18" height="18" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+    </div>
+    <span class="logo-text">Talent<span>Bridge</span></span>
+  </div>
+  <div class="nav-menu">
+    <a href="#jobs" class="active">Jobs</a>
+    <a href="#jobs">Internships</a>
+    <a href="#companies">Companies</a>
+    <a href="salary.html">Salary Guide</a>
+    <a href="resume.html">Resume Builder</a>
+  </div>
+  <div class="nav-actions">
+    <button class="btn-ghost" onclick="window.location.href='login.html'">Sign In</button>
+    <button class="btn-solid" onclick="window.location.href='login.html'">Create Account</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">✦ India's Trusted Career Platform</div>
+    <h1>Your <em>Next Opportunity</em><br>Starts Here</h1>
+    <p class="hero-sub">Search thousands of verified jobs and internships at India's leading companies. Find roles aligned with your skills, location, and ambitions.</p>
+
+    <div class="search-wrapper" id="searchWrapper">
+      <div class="search-box">
+        <div class="sf">
+          <svg class="sf-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input id="searchKeyword" type="text" placeholder="Job title, company, or keyword" autocomplete="off" oninput="handleSearchInput()" onkeydown="handleSearchKey(event)" />
+        </div>
+        <div class="sf">
+          <svg class="sf-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <input id="searchLocation" type="text" placeholder="City, state, or Remote" autocomplete="off" oninput="handleSearchInput()" onkeydown="handleSearchKey(event)" />
+        </div>
+        <div class="sf">
+          <svg class="sf-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          <select id="searchLevel" onchange="handleSearchInput()">
+            <option value="">Experience Level</option>
+            <option>Entry Level / Fresher</option>
+            <option>Internship</option>
+            <option>Mid-Level (2–5 yrs)</option>
+            <option>Senior (5+ yrs)</option>
+          </select>
+        </div>
+        <button class="search-submit" onclick="runFullSearch()">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          Search Jobs
+        </button>
+      </div>
+      <div class="search-dropdown" id="searchDropdown"></div>
+    </div>
+
+    <div class="hero-ctas">
+      <button onclick="openAiModal()" class="btn-solid" style="background:#5a2d82; border-color:#5a2d82;">✨ AI Auto-Apply</button>
+      <a href="salary.html" class="btn-ghost">Explore Salary Guide</a>
+      <a href="resume.html" class="btn-solid">Build Your Resume</a>
+    </div>
+
+    <div class="popular-searches">
+      <span class="ps-label">Popular:</span>
+      <span class="ps-tag">Software Engineer</span>
+      <span class="ps-tag">Product Manager</span>
+      <span class="ps-tag">Data Analyst</span>
+      <span class="ps-tag">UI/UX Designer</span>
+      <span class="ps-tag">Business Analyst</span>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hstat"><span class="hstat-num">14<sup>K+</sup></span><span class="hstat-lbl">Live Listings</span></div>
+      <div class="hstat"><span class="hstat-num">3.2<sup>K+</sup></span><span class="hstat-lbl">Verified Companies</span></div>
+      <div class="hstat"><span class="hstat-num">98<sup>%</sup></span><span class="hstat-lbl">Placement Rate</span></div>
+      <div class="hstat"><span class="hstat-num">50<sup>K+</sup></span><span class="hstat-lbl">Candidates Placed</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrapper">
+  <section class="section" id="searchResultsSection">
+    <div class="section-head">
+      <div>
+        <div class="section-label">Search Results</div>
+        <div class="section-title" id="searchResultsTitle">Results</div>
+      </div>
+      <button class="srb-clear" onclick="clearSearch()">✕ Clear Search</button>
+    </div>
+    <div class="jobs-layout" id="searchResultsContainer"></div>
+  </section>
+
+  <section class="section" id="jobs">
+    <div class="section-head">
+      <div>
+        <div class="section-label">Opportunities</div>
+        <div class="section-title">Featured Jobs &amp; Internships</div>
+      </div>
+      <a href="#" class="link-all">View all listings →</a>
+    </div>
+    <div class="chips">
+      <button class="chip active" onclick="filterChip(this,'all')">All Roles</button>
+      <button class="chip" onclick="filterChip(this,'intern')">Internships</button>
+      <button class="chip" onclick="filterChip(this,'full')">Full-time</button>
+      <button class="chip" onclick="filterChip(this,'remote')">Remote</button>
+      <button class="chip" onclick="filterChip(this,'eng')">Engineering</button>
+      <button class="chip" onclick="filterChip(this,'design')">Design</button>
+      <button class="chip" onclick="filterChip(this,'data')">Data &amp; Analytics</button>
+    </div>
+    <div class="jobs-layout" id="jobsContainer"></div>
+  </section>
+
+  <section class="section" id="companies">
+    <div class="section-head">
+      <div>
+        <div class="section-label">Top Employers</div>
+        <div class="section-title">Company Profiles</div>
+      </div>
+      <a href="#" class="link-all">Explore all companies →</a>
+    </div>
+    <div class="comp-grid" id="companyGrid"></div>
+  </section>
+</div>
+
+<div class="cta-strip">
+  <div class="cta-text">
+    <h2>Hiring Top Talent?</h2>
+    <p>Post your vacancies on TalentBridge and connect with thousands of qualified professionals and interns. First job post is completely free.</p>
+  </div>
+  <div class="cta-btns">
+    <button class="cta-primary">Post a Job — Free</button>
+    <button class="cta-ghost">Request a Demo</button>
+  </div>
+</div>
+
+<footer>
+  <span>© 2026 TalentBridge Pvt. Ltd. All rights reserved.</span>
+  <div class="foot-links">
+    <a href="#">About</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Use</a>
+    <a href="#">Contact</a>
+    <a href="#">Sitemap</a>
+  </div>
+</footer>
+
+<!-- APPLY MODAL -->
+<div class="overlay" id="applyOverlay" onclick="closeModal(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <h3 id="modalTitle">Apply for Position</h3>
+        <p id="modalSub">Complete the form below to submit your application.</p>
+      </div>
+      <button class="close-btn" onclick="closeModalDirect()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-row">
+        <div class="form-group"><label>First Name *</label><input type="text" placeholder="Arjun" /></div>
+        <div class="form-group"><label>Last Name *</label><input type="text" placeholder="Sharma" /></div>
+      </div>
+      <div class="form-group"><label>Email Address *</label><input type="email" placeholder="arjun@email.com" /></div>
+      <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+91 98765 43210" /></div>
+      <div class="form-group"><label>LinkedIn Profile</label><input type="url" placeholder="linkedin.com/in/yourname" /></div>
+      <div class="form-group">
+        <label>Upload Resume *</label>
+        <div class="upload-box">
+          <svg width="24" height="24" fill="none" stroke="#8b95ab" stroke-width="1.5" viewBox="0 0 24 24" style="margin:0 auto;display:block"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <p>Drag &amp; drop your PDF or Word resume, or <span style="color:var(--blue);cursor:pointer">click to browse</span></p>
+        </div>
+      </div>
+      <div class="form-group"><label>Cover Note (Optional)</label><textarea placeholder="Briefly tell us why you're a great fit for this role…"></textarea></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-ghost" onclick="closeModalDirect()">Cancel</button>
+      <button class="modal-submit" onclick="submitApp()">Submit Application →</button>
+    </div>
+  </div>
+</div>
+
+<!-- AI AUTO APPLY MODAL -->
+<div class="overlay" id="aiApplyOverlay" onclick="closeAiModal(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <h3 id="aiModalTitle">✨ LangGraph AI Agent Proxy</h3>
+        <p>Enter your technical skills (comma separated), and our autonomous AI will scan all available jobs and automatically submit applications for roles matching >50% of your stack!</p>
+      </div>
+      <button class="close-btn" onclick="closeAiModalDirect()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label>Your Stack & Skills *</label>
+        <textarea id="aiSkillsInput" placeholder="e.g. JavaScript, React, Node.js, Express, MongoDB..."></textarea>
+      </div>
+      <div id="aiStatus" class="ai-status-msg" style="display:none; padding:1rem; border-radius:8px; margin-top:1rem; font-size:0.9rem; border:1px solid var(--gray-200);"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-ghost" onclick="closeAiModalDirect()">Cancel</button>
+      <button id="aiSubmitBtn" class="modal-submit" style="background:linear-gradient(90deg, #5a2d82, #2874f0); border:none;" onclick="submitAiApp()">Deploy Agent 🚀</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

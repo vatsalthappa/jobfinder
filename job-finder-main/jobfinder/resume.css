@@ -1,0 +1,8 @@
+/* Resume builder small styles */
+input, textarea { width:100%; padding:0.6rem; border-radius:8px; border:1px solid var(--gray-200); font-family:inherit; }
+textarea { min-height:100px; }
+.skill-pill { display:inline-block; background:var(--gray-100); padding:0.28rem 0.5rem; border-radius:6px; margin:0.12rem; font-size:0.78rem; }
+
+#resumePreview h1 { font-family:'Playfair Display', serif; margin:0; }
+#resumePreview .meta { color:var(--gray-600); margin-bottom:0.5rem }
+#resumePreview .skills { margin-top:0.6rem }
